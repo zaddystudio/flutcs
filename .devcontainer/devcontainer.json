@@ -1,0 +1,33 @@
+{
+  "name": "Flutter & Laravel Full-Stack Dev Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dart-code.flutter",
+        "dart-code.dart-code",
+        "bmewburn.vscode-intelephense",
+        "amiralansh.laravel-blade-highlighter"
+      ]
+    }
+  },
+  "forwardPorts": [8000, 8080, 3306],
+  "portsAttributes": {
+    "8000": {
+      "label": "Laravel API",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "Flutter Web App",
+      "onAutoForward": "openPreview"
+    },
+    "3306": {
+      "label": "MySQL Database",
+      "onAutoForward": "ignore"
+    }
+  },
+  "postCreateCommand": "echo 'Environment ready! Run your migrations and app servers in the terminal.'"
+}
+
